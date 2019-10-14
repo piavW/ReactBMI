@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import DisplayResult from './Components/displayResult';
-
+import { Container } from 'semantic-ui-react';
 
 class App extends Component {
   constructor(props) {
@@ -13,7 +13,7 @@ class App extends Component {
 
   render() {
     return (
-      <div class="ui raised very padded text container segment">
+      <> 
         <div>
           <label>Weight(kg)</label>
           <input name="weight" value={this.state.weight} onChange={ (e) => this.setState({ weight: e.target.value })} />
@@ -28,7 +28,7 @@ class App extends Component {
 					weight={this.state.weight}
 					height={this.state.height}
 				/>
-    	</div>
+      </>
     );
   }
 }
