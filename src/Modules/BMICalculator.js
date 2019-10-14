@@ -11,7 +11,7 @@ export const bmiCalculation = (weight, height, method) => {
   let finalBMI = parseFloat(bmi.toFixed(2));
   let BMIMessage = setBMIMessage(finalBMI)
   if (isNaN(finalBMI) || !isFinite(finalBMI) || finalBMI === 0) {
-    return 'Please input a number'
+    return 'Please input your weight and height'
   } else {
     return `You are ${BMIMessage} with a BMI of ${finalBMI}`;
   }
