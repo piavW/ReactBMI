@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import DisplayResult from './Components/displayResult';
-import {Card, Container} from 'semantic-ui-react';
+import DisplayResult from './Components/DisplayResult';
+import { Container } from 'semantic-ui-react';
 
 class App extends Component {
   constructor(props) {
@@ -11,36 +11,34 @@ class App extends Component {
       method: 'metric'
     }
   }
-
-  changeMethod = (event) => {
+   changeMethod = (event) => {
     this.setState({
-      method: event.target.name
+      method: event.target.value
     })
   }
-
+  
   render() {
     return (
      <Container textAlign='center'>
-      <Card>
       <h1>BMI Converter</h1>
-        <select id="method">
-          <option name="metric" method={this.state.method} onClick={this.changeMethod}>metric</option>
-          <option name="imperial" method={this.state.method} onClick={this.changeMethod}>imperial</option>
+        <select id="method"  method={this.state.method} onChange={this.changeMethod}>
+          <option value="metric">metric</option>
+          <option value="imperial">imperial</option>
         </select>
         <div>
-          <label>Weight(kg)</label>
+          <label>Weight {this.state.method === 'metric' ? '(kg)' : '(lbs)'}</label>
           <input name="weight" value={this.state.weight} onChange={ (e) => this.setState({ weight: e.target.value })} />
         </div>
         <div>
-            <label>Height(cm)</label>
+            <label>Height {this.state.method === 'metric' ? '(cm)' : '(inches)'}</label>
             <input name="height" value={this.state.height} onChange={ (e) => this.setState({ height: e.target.value })}/>
         </div>
 
 				<DisplayResult 
 					weight={this.state.weight}
-					height={this.state.height}
+          height={this.state.height}
+          method={this.state.method}
 				/>
-        </Card>
       </Container>
 
     );

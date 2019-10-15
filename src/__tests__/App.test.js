@@ -2,8 +2,8 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 import { stub } from 'sinon';
 
-import MethodSelect from '../Components/MethodSelect';
-import App from './App';
+import BMICalculator from '../Modules/BMICalculator';
+import App from '../App';
 
 describe('<App />', () => {
   it('renders header', () => {
