@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import DisplayResult from './Components/displayResult';
-import {Card} from 'semantic-ui-react';
+import {Card, Container} from 'semantic-ui-react';
 
 class App extends Component {
   constructor(props) {
@@ -12,14 +12,20 @@ class App extends Component {
     }
   }
 
+  changeMethod = (event) => {
+    this.setState({
+      method: event.target.name
+    })
+  }
+
   render() {
     return (
-      <> 
-      <Card style={{ width:" 350px", height: "150px", padding:"100",margin: "500px"}}>
+     <Container textAlign='center'>
+      <Card>
       <h1>BMI Converter</h1>
-        <select id="method" value={this.state.method} onChange={ () => this.setState({ method: 'imperial'})}>
-          <option value="metric">metric</option>
-          <option value="imperial">imperial</option>
+        <select id="method">
+          <option name="metric" method={this.state.method} onClick={this.changeMethod}>metric</option>
+          <option name="imperial" method={this.state.method} onClick={this.changeMethod}>imperial</option>
         </select>
         <div>
           <label>Weight(kg)</label>
@@ -35,7 +41,8 @@ class App extends Component {
 					height={this.state.height}
 				/>
         </Card>
-        </>
+      </Container>
+
     );
   }
 }
