@@ -5,8 +5,9 @@ class DisplayResult extends Component {
   calculate(){
     var weight= this.props.weight;
     var height= this.props.height;
-    
-    return bmiCalculation(weight, height);
+    var method = this.props.method;
+
+    return bmiCalculation(weight, height, method);
   }
   render(){
     return(
